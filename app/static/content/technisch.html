@@ -208,20 +208,20 @@
 <div class="hr-page-text">
 <p>
     Auteur: Just van den Broecke, Just Objects B.V.
-    <br/>Datum: 18 oktober, 2013
+    <br/>Datum: 12 april, 2018
 </p>
 
 <h2>Introductie</h2>
 <hr>
 <p>Dit document beschrijft de technische opzet en infrastructuur-vereisten voor de
     zogenaamde "KadViewer". De KadViewer is de werktitel voor een op het <a
-            href="http://heron-mc.org">Heron-raamwerk</a>
+            href="https://heron-mc.org">Heron-raamwerk</a>
     gebaseerde webviewer.
-    Deze is ontwikkeld als Proof-of-Concept (PoC) door <a href="http://www.justobjects.nl">Just Objects</a> in
+    Deze is ontwikkeld als Proof-of-Concept (PoC) door <a href="https://www.justobjects.nl">Just Objects</a> in
     opdracht van Kadaster PPI
     (Meindert Sterenberg/Peter Jansen) in de periode juli-okt 2013.
     De KadViewer is beschikbaar via de Kademo omgeving met het web adres:
-    <a href="http://kadviewer.kademo.nl">kadviewer.kademo.nl</a>. Voornaamste doel was om te onderzoeken of een
+    <a href="https://kadviewer.map5.nl">kadviewer.map5.nl</a>. Voornaamste doel was om te onderzoeken of een
     serie
     van door Kadaster PPI (Peter Jansen) opgestelde functionaliteiten konden worden gerealiseerd. Ook de impact
     op de bestaande
@@ -238,8 +238,8 @@
    Heron is een raamwerk voor het bouwen van een "GIS-Webclient", dat kan een Viewer zijn, maar in principe is alles mogelijk.
     Heron is zelf namelijk geen applicatie maar een conventie, voornamelijk via configuratie, om
     middels bestaande (JavaScript) componenten, meestal "Widgets" een applicatie samen te stellen.
-    Voor deze componenten maakt Heron gebruik van voornamelijk de <a href="http://geoext.org">GeoExt bibliotheek</a>.
-    GeoExt zelf is weer gebaseerd op <a href="http://openlayers.org">OpenLayers</a> en <a href="http://extjs.com">ExtJS</a>.
+    Voor deze componenten maakt Heron gebruik van voornamelijk de <a href="https://geoext.org">GeoExt bibliotheek</a>.
+    GeoExt zelf is weer gebaseerd op <a href="https://openlayers.org">OpenLayers</a> en <a href="https://extjs.com">ExtJS</a>.
     OpenLayers voor kaart/laag-functies en ExtJS als algemeen GUI/Widget framework. Hierdoor kunnen zeer volledige/rijke
     "desktop-achtige" GIS-clients worden samengesteld.
     Zie figuur onder.
@@ -253,7 +253,7 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
     ontwikkelen/uitbreiden van eigen componenten als zgn "plugins" is Heron ook uitgebreid met eigen plugins
     (bijv WFS zoek panelen) maar gebruikt ook externe GeoExt en OpenLayers plugins. Voorbeeld eerste is
     <a href="https://github.com/boundlessgeo/gxp">GXP</a>, een rijke widget-set.
-    De <a href="http://ole.geops.de">OpenLayers Editor (OLE)</a>
+    De <a href="https://ole.geops.de">OpenLayers Editor (OLE)</a>
     wordt gebruikt voor de tekentool in de KadViewer. Alle componenten
     worden steeds op dezelfde conventie geconfigureerd om een Heron app samen te stellen.
     De KadViewer bevat dan ook geen specifieke custom code: de gehele app is samengesteld
@@ -264,8 +264,8 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
 <img src="images/heron-lib-plugin-arch.jpg" border="0" />
 </p>
 <p>
-    Meer over Heron is te lezen in de documentatie op: <a href="http://heron-mc.org/docs.html">heron-mc.org/docs.html</a>.
-    Ook is daar een link naar een <a href="http://www.slideshare.net/justb4/the-heron">inleidende Heron presentatie</a>.
+    Meer over Heron is te lezen in de documentatie op: <a href="https://heron-mc.org/docs.html">heron-mc.org/docs.html</a>.
+    Ook is daar een link naar een <a href="https://www.slideshare.net/justb4/the-heron">inleidende Heron presentatie</a>.
 </p>
 <h2>Client Opzet</h2>
 <hr>
@@ -291,61 +291,61 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
 </p>
 <pre>
     &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-    &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+            "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+    &lt;html xmlns="https://www.w3.org/1999/xhtml"&gt;
     &lt;head&gt;
         &lt;meta http-equiv="Content-type" content="text/html;charset=UTF-8"/&gt;
         &lt;title&gt;KadViewer - Kadaster Heron Viewer Prototype&lt;/title&gt;
     
         &lt;!-- External lib: ExtJS --&gt;
         &lt;link rel="stylesheet" type="text/css"
-              href="http://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/resources/css/ext-all.css"/&gt;
+              href="https://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/resources/css/ext-all.css"/&gt;
         &lt;script type="text/javascript"
-                src="http://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/ext-all.js"&gt;&lt;/script&gt;
+                src="https://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/ext-all.js"&gt;&lt;/script&gt;
     
         &lt;!-- External lib: Proj4JS (reproject lib) --&gt;
-        &lt;script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"&gt;&lt;/script&gt;
+        &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"&gt;&lt;/script&gt;
     
         &lt;!-- External lib: OpenLayers   --&gt;
-        &lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/OpenLayers.js"&gt;&lt;/script&gt;
-        &lt;link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/theme/default/style.css"/&gt;
-        &lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/lib/OpenLayers/Lang/nl.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/OpenLayers.js"&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/theme/default/style.css"/&gt;
+        &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/lib/OpenLayers/Lang/nl.js"&gt;&lt;/script&gt;
     
         &lt;!-- External lib: GeoExt --&gt;
-        &lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/geoext/1.1/script/GeoExt.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="http://lib.heron-mc.org/geoext/1.1/lib/overrides/override-ext-ajax.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/geoext/1.1/lib/GeoExt/locale/GeoExt-nl.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/geoext/1.1/script/GeoExt.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="https://lib.heron-mc.org/geoext/1.1/lib/overrides/override-ext-ajax.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/geoext/1.1/lib/GeoExt/locale/GeoExt-nl.js"&gt;&lt;/script&gt;
     
         &lt;!-- Script and css resources for printpreview ux (in Heron-ux.js) --&gt;
         &lt;link rel="stylesheet" type="text/css"
-              href="http://lib.heron-mc.org/heron/latest/ux/printpreview/resources/css/printpreview.css"/&gt;
+              href="https://lib.heron-mc.org/heron/latest/ux/printpreview/resources/css/printpreview.css"/&gt;
     
         &lt;!-- External lib: GXP (in Heron-ux.js) --&gt;
-        &lt;link rel="stylesheet" type="text/css" href="http://lib.heron-mc.org/heron/latest/ux/gxp/git/src/theme/all.css"/&gt;
+        &lt;link rel="stylesheet" type="text/css" href="https://lib.heron-mc.org/heron/latest/ux/gxp/git/src/theme/all.css"/&gt;
     
         &lt;!-- External lib: Heron Mapping Client --&gt;
-        &lt;link rel="stylesheet" type="text/css" href="http://lib.heron-mc.org/heron/latest/resources/css/default.css"/&gt;
-        &lt;link rel="stylesheet" type="text/css" href="http://lib.heron-mc.org/heron/latest/resources/css/portal.css"/&gt;
+        &lt;link rel="stylesheet" type="text/css" href="https://lib.heron-mc.org/heron/latest/resources/css/default.css"/&gt;
+        &lt;link rel="stylesheet" type="text/css" href="https://lib.heron-mc.org/heron/latest/resources/css/portal.css"/&gt;
     
        	&lt;!--[if IE]&gt;
-       	&lt;link rel="stylesheet" type="text/css" href="http://lib.heron-mc.org/heron/latest/resources/css/portal-ie.css"/&gt;
+       	&lt;link rel="stylesheet" type="text/css" href="https://lib.heron-mc.org/heron/latest/resources/css/portal-ie.css"/&gt;
        	&lt;![endif]--&gt;
-        &lt;link rel="stylesheet" href="http://lib.heron-mc.org/heron/latest/ux/oleditor/ole/client/theme/geosilk/geosilk.css" type="text/css"/&gt;
-        &lt;script type="text/javascript" src="http://lib.heron-mc.org/heron/latest/lib/i18n/nl_NL.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="http://lib.heron-mc.org/heron/latest/script/Heron-with-ux.js"&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="https://lib.heron-mc.org/heron/latest/ux/oleditor/ole/client/theme/geosilk/geosilk.css" type="text/css"/&gt;
+        &lt;script type="text/javascript" src="https://lib.heron-mc.org/heron/latest/lib/i18n/nl_NL.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="https://lib.heron-mc.org/heron/latest/script/Heron-with-ux.js"&gt;&lt;/script&gt;
 
-        &lt;script type="text/javascript" src="http://lib.heron-mc.org/heron/latest/ux/printpreview/lib/locale/PrintPreview-nl.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="https://lib.heron-mc.org/heron/latest/ux/printpreview/lib/locale/PrintPreview-nl.js"&gt;&lt;/script&gt;
     
         &lt;!-- OpenLayers - System Settings --&gt;
         &lt;script type="text/javascript"&gt;
-            Heron.globals.imagePath = 'http://lib.heron-mc.org/heron/latest/resources/images/';
+            Heron.globals.imagePath = 'https://lib.heron-mc.org/heron/latest/resources/images/';
         &lt;/script&gt;
     
         &lt;!-- Under development: copy from example until stable --&gt;
         &lt;script type="text/javascript" src="VectorStyleWriter.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript" src="VectorStylesDialog.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="http://lib.heron-mc.org/heron/latest/ux/gxp/git/src/script/locale/nl.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="https://lib.heron-mc.org/heron/latest/ux/gxp/git/src/script/locale/nl.js"&gt;&lt;/script&gt;
     
         &lt;!-- Use default configuration --&gt;
         &lt;script type="text/javascript" src="config/Map.js"&gt;&lt;/script&gt;
@@ -427,7 +427,7 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
     Deze laatsten, met name externe bibliotheken zoals OpenLayers, kunnen ook via een zogenaamd Content Delivery
     Network
     (CDN) gerefereerd worden. Dit heeft ook voordelen voor performance. Maar desgewenst, zie bijv.
-    <a target="_new" href="http://geodata.nationaalgeoregister.nl/apps/preview">PDOK PreviewApp</a> kan alles
+    <a target="_new" href="https://geodata.nationaalgeoregister.nl/apps/preview">PDOK PreviewApp</a> kan alles
     binnen een intranet gehost worden.
 </p>
 
@@ -543,7 +543,7 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
     (bestandsoort) zetten en vooral de "Content-Disposition: attachment". Hierdoor wordt
     de browser getriggerd dat een bestand gedownload moet worden.
     Dit is een bekende methodiek en staat o.a.
-    <a href="http://www.sencha.com/forum/showthread.php?81897-FYI-Very-simple-approach-to-JS-triggered-file-downloads">hier
+    <a href="https://www.sencha.com/forum/showthread.php?81897-FYI-Very-simple-approach-to-JS-triggered-file-downloads">hier
         bescheven</a>.
 </p>
 <h4>Protocol (Download)</h4>
@@ -726,9 +726,9 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
 
 <p>
     Printen wordt geheel gerealiseerd door de externe webapplicatie
-    <a target="_new" href="http://www.mapfish.org/doc/print/">MapFish Printing (MFP)</a>. Op Kademo is
+    <a target="_new" href="https://www.mapfish.org/doc/print/">MapFish Printing (MFP)</a>. Op Kademo is
     een MapFish Print server ingericht en geconfigureerd voor onder andere de KadViewer.
-    MFP is onderdeel van het bekende <a href="http://mapfish.org">MapFish Framework</a>.
+    MFP is onderdeel van het bekende <a href="https://mapfish.org">MapFish Framework</a>.
     Binnen de Open Geo-ICT is MFP in feite de enige Print server voor op OGC-services
     gebaseerde kaartbeelden. MFP is een Java J2EE webapplicatie (.war) en zou dus prima in de Kadaster
     ICT-infrastructuur (bijv. PLP/JAP) passen.
@@ -761,7 +761,7 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
 </p>
 
 <p>
-    Over bovenstaande is veel te vinden op de <a target="_new" href="http://www.mapfish.org/doc/print/">MapFish Printing
+    Over bovenstaande is veel te vinden op de <a target="_new" href="https://www.mapfish.org/doc/print/">MapFish Printing
     (MFP)</a>
     site. Voor de Kadviewer is er een standaard YAML file ingeregeld met formaten A4, A3 en A0 en
     beiden in portrait en landscape. Het ontwikkelen van een goede YAML file
@@ -790,7 +790,7 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
 <p>
     Meerdere URLS/YAMLs kunnen binnen een enkele MFP webapp worden opgezet.
     De YAML voor de KadViewer is hier te vinden:
-    <a href="http://kademo.nl/print/config.28992.kadviewer1.yaml">kademo.nl/print/config.28992.kadviewer1.yaml</a>.
+    <a href="https://kademo.nl/print/config.28992.kadviewer1.yaml">kademo.nl/print/config.28992.kadviewer1.yaml</a>.
 
 </p>
 <h4>Protocol</h4>
@@ -857,9 +857,9 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
             {"name": "A4 Portrait", "map": {"width": 535, "height": 700}, "rotation": true}
         ],
         "printURL":
-        "http://kademo.nl/print/pdf28992.kadviewer/print.pdf",
+        "https://kademo.nl/print/pdf28992.kadviewer/print.pdf",
         "createURL":
-        "http://kademo.nl/print/pdf28992.kadviewer/create.json"
+        "https://kademo.nl/print/pdf28992.kadviewer/create.json"
     }
 
 </pre>
@@ -874,7 +874,7 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
 			  "mapTitle":"Heron Printing Demo",
 			  "mapComment":"This is a simple map printed from GeoExt.",
 			  "layers":[
-				  {"baseURL":"http://geodata.nationaalgeoregister.nl/tms/",
+				  {"baseURL":"https://geodata.nationaalgeoregister.nl/tms/",
 					  "opacity":1,
 					  "singleTile":false,
 					  "type":"TMS",
@@ -891,7 +891,7 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
 </pre>
 <p>Voorbeeld response</p>
 <pre>
-    {"getURL":"http://kademo.nl/print/pdf28992.kadviewer/964385122042115028.pdf.printout"}
+    {"getURL":"https://kademo.nl/print/pdf28992.kadviewer/964385122042115028.pdf.printout"}
 </pre>
 <h4>Limitaties</h4>
 
@@ -929,31 +929,31 @@ Omdat de ondersteunende blibliotheken  niet alle functies bevatten en deze ieder
 <hr>
 <ul>
     <li>
-        <a target="_new" href="http://heron-mc.org">heron-mc.org - Heron algemene website</a>
+        <a target="_new" href="https://heron-mc.org">heron-mc.org - Heron algemene website</a>
     </li>
 
     <li>
-        <a target="_new" href="http://heron-mc.org">Heron Project website</a>
+        <a target="_new" href="https://heron-mc.org">Heron Project website</a>
     </li>
     <li>
-        <a target="_new" href="http://kademo.nl">kademo.nl - Kademo Lab algemene Website</a>
-    </li>
-
-    <li>
-        <a target="_new" href="http://rdinfo.kademo.nl">rdinfo.kademo.nl - Heron voorbeeld: RDInfo PoC</a>
+        <a target="_new" href="https://kademo.nl">kademo.nl - Kademo Lab algemene Website</a>
     </li>
 
     <li>
-        <a target="_new" href="http://pdokviewer.pdok.nl">pdokviewer.pdok.nl - Heron app: PDOK Publieke
+        <a target="_new" href="https://rdinfo.kademo.nl">rdinfo.kademo.nl - Heron voorbeeld: RDInfo PoC</a>
+    </li>
+
+    <li>
+        <a target="_new" href="https://pdokviewer.pdok.nl">pdokviewer.pdok.nl - Heron app: PDOK Publieke
             Viewer</a>
     </li>
     <li>
-        <a target="_new" href="http://geodata.nationaalgeoregister.nl/apps/preview">http://geodata.nationaalgeoregister.nl/apps/preview
+        <a target="_new" href="https://geodata.nationaalgeoregister.nl/apps/preview">https://geodata.nationaalgeoregister.nl/apps/preview
             - Heron app:PDOK PreviewApp (whitelisted)</a>
     </li>
 
     <li>
-        <a target="_new" href="http://www.mapfish.org/doc/print/">MapFish Print Server</a>
+        <a target="_new" href="https://www.mapfish.org/doc/print/">MapFish Print Server</a>
     </li>
 
 </ul>
