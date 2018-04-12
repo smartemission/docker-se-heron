@@ -10,7 +10,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 Ext.namespace("Heron");
 Ext.namespace("Heron.options");
@@ -49,7 +49,7 @@ Heron.cdate = Heron.cdate.toISOString();
  * the later are prefixed with "hr". These are defined outside this file to allow quick custimization.
  *
  * Specific config options for ExtJS components can be found in the API docs:
- * http://docs.sencha.com/ext-js/3-4/#!/api
+ * https://docs.sencha.com/ext-js/3-4/#!/api
  *
  * This is the core config, mainly the layout of a Heron browser application for all examples.
  * Many of the options refer to Javascript variables that are defined within
@@ -177,14 +177,14 @@ Heron.layout = {
                         },
                         rivm_inspire_wms: {
                             ptype: "gxp_wmssource",
-                            url: 'http://inspire.rivm.nl/geoserver/wms?',
+                            url: 'https://inspire.rivm.nl/geoserver/wms?',
                             version: "1.1.1",
                             title: 'RIVM INSPIRE WMS',
                             owsPreviewStrategies: ['getlegendgraphic']  // or 'no preview available' if empty array
                         },
                         knmi_inspire_wms: {
                             ptype: "gxp_wmssource",
-                            url: 'http://geoservices.knmi.nl/cgi-bin/inspireviewservice.cgi?DATASET=urn:xkdc:ds:nl.knmi::Actuele10mindataKNMIstations/1/',
+                            url: 'https://geoservices.knmi.nl/cgi-bin/inspireviewservice.cgi?DATASET=urn:xkdc:ds:nl.knmi::Actuele10mindataKNMIstations/1/',
                             version: "1.1.1",
                             title: 'KNMI INSPIRE WMS',
                             owsPreviewStrategies: ['getlegendgraphic']  // or 'no preview available' if empty array
@@ -192,7 +192,7 @@ Heron.layout = {
 
                         //geonovum_sospilot_wms: {
                         //    ptype: "gxp_wmssource",
-                        //    url: 'http://sensors.geonovum.nl/gs/sensors/wms?',
+                        //    url: 'https://sensors.geonovum.nl/gs/sensors/wms?',
                         //    version: "1.1.1",
                         //    title: 'Geonovum SOSPilot WMS',
                         //    owsPreviewStrategies: ['getlegendgraphic']  // or 'no preview available' if empty array
@@ -220,7 +220,7 @@ Heron.layout = {
                         },
                         map5_tms: {
                             ptype: "gxp_tmssource",
-                            url: 'http://s.map5.nl/map/gast/tms/1.0.0/',
+                            url: 'https://s.map5.nl/map/gast/tms/1.0.0/',
                             isBaseLayer: true,  // default is true
                             group: 'background' // 'background' or 'default', default value is 'background'
                         },
@@ -234,7 +234,7 @@ Heron.layout = {
                         //                    ptype: "gxp_osmsource"
                         //                }
                         //                dutchheights: {
-                        //                    url: "http://geodata.nationaalgeoregister.nl/ahn2/wcs?",
+                        //                    url: "https://geodata.nationaalgeoregister.nl/ahn2/wcs?",
                         //                    version: "1.1.1",
                         //                    title: 'PDOK AHN2'
                         //                },
@@ -244,8 +244,8 @@ Heron.layout = {
                         ,
                         nationaalgeoregister: {
                             ptype: "gxp_cataloguesource",
-                            url: "http://www.nationaalgeoregister.nl/geonetwork/srv/dut/csw",
-                            fullMetadataUrlTpl: 'http://www.nationaalgeoregister.nl/geonetwork/srv/dut/search?uuid={id}',
+                            url: "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/csw",
+                            fullMetadataUrlTpl: 'https://www.nationaalgeoregister.nl/geonetwork/srv/dut/search?uuid={id}',
                             title: "Nationaal Georegister"
                         }
                     },
@@ -297,7 +297,7 @@ Heron.layout = {
                 {
                     xtype: 'hr_mappanel',
                     id: 'hr-map',
-                    title: '<a href="http://smartemission.nl">Smart Emission</a> - HeronViewer - Gemaakt met <a href="http://heron-mc.org">Heron</a> - <b>SE-metingen gecalibreerd!</b>',
+                    title: '<a href="https://smartemission.nl">Smart Emission</a> - HeronViewer - Gemaakt met <a href="https://heron-mc.org">Heron</a> - <b>SE-metingen gecalibreerd!</b>',
                     region: 'center',
                     collapsible: false,
                     border: false,
@@ -362,7 +362,7 @@ Heron.layout = {
                     flex: 2, //gives precedence, and "flexes" to fill space
                     height: 16,
                     border: true,
-                    html: 'Downloaden tijdreeksen (historie): kies verrekijker knop <img src="http://lib.heron-mc.org/heron/latest/resources/images/silk/find.png"> bovenaan',
+                    html: 'Downloaden tijdreeksen (historie): kies verrekijker knop <img src="https://lib.heron-mc.org/heron/latest/resources/images/silk/find.png"> bovenaan',
                     style: {
                         fontSize: '11px',
                         color: '#444444'

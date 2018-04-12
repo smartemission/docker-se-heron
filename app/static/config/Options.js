@@ -7,7 +7,7 @@ Ext.namespace("Heron.globals");
 Heron.globals.serviceUrl = 'cgi-bin/heron.cgi';
 OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
 
-Ext.BLANK_IMAGE_URL = 'http://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/resources/images/default/s.gif';
+Ext.BLANK_IMAGE_URL = 'https://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/resources/images/default/s.gif';
 GeoExt.Lang.set("nl");
 
 /**
@@ -15,7 +15,7 @@ GeoExt.Lang.set("nl");
  * TODO: move to heron core !!
  */
 Ext.onReady(function () {
-    // Bookmark e.g. http://sensors.geonovum.nl/heronviewer?bookmark=rivmriono2 may be passed in
+    // Bookmark e.g. https://sensors.geonovum.nl/heronviewer?bookmark=rivmriono2 may be passed in
     var queryParams = OpenLayers.Util.getParameters();
     var bookmark = (queryParams && queryParams['bookmark'] !== undefined) ? queryParams['bookmark'] : undefined;
     if (bookmark) {
@@ -116,7 +116,7 @@ Heron.options.searchPanelConfig = {
                     url: Heron.scratch.urls.SMARTEM_WFS,
                     srsName: "EPSG:4326",
                     featureType: "timeseries",
-                    featureNS: "http://smartem.geonovum.nl",
+                    featureNS: "https://smartem.geonovum.nl",
                     outputFormat: 'GML2',
                     maxFeatures: 20000
                 }),
@@ -395,7 +395,7 @@ var sthURL = 'http://sensors.geonovum.nl:8666';
 var entityType = 'thing';
 Heron.options.map.toolbar = [
     //{type: "scale"},
-    /* Leave out: see http://code.google.com/p/geoext-viewer/issues/detail?id=116 */
+    /* Leave out: see https://code.google.com/p/geoext-viewer/issues/detail?id=116 */
     {
         type: "featureinfo", options: {
         pressed: true,
@@ -421,7 +421,7 @@ Heron.options.map.toolbar = [
                         featureType: 'Fiware Entities',
                         attrName: 'temperature',
                         renderer: {
-                            // http://sensors.geonovum.nl:8666/STH/v1/contextEntities/type/thing/id/d/attributes/temperature?lastN
+                            // https://sensors.geonovum.nl:8666/STH/v1/contextEntities/type/thing/id/d/attributes/temperature?lastN
                             fn: function (value, metaData, record, rowIndex, colIndex, store) {
                                 var args = '\'' + sthURL + '\', \'' + entityType + '\', \'' + record.data['id'] + '\', \'temperature\'';
                                 return value + ' &nbsp;&nbsp;<a href="#" onClick="sthShowTimeseries(' + args + ')">[Show timeseries]</a>';
@@ -434,7 +434,7 @@ Heron.options.map.toolbar = [
                         featureType: 'Fiware Entities',
                         attrName: 'humidity',
                         renderer: {
-                            // http://sensors.geonovum.nl:8666/STH/v1/contextEntities/type/thing/id/d/attributes/temperature?lastN
+                            // https://sensors.geonovum.nl:8666/STH/v1/contextEntities/type/thing/id/d/attributes/temperature?lastN
                             fn: function (value, metaData, record, rowIndex, colIndex, store) {
                                 var args = '\'' + sthURL + '\', \'' + entityType + '\', \'' + record.data['id'] + '\', \'humidity\'';
                                 return value + ' &nbsp;&nbsp;<a href="#" onClick="sthShowTimeseries(' + args + ')">[Show timeseries]</a>';
@@ -447,7 +447,7 @@ Heron.options.map.toolbar = [
                         featureType: 'Fiware Entities',
                         attrName: 'pm10',
                         renderer: {
-                            // http://sensors.geonovum.nl:8666/STH/v1/contextEntities/type/thing/id/d/attributes/temperature?lastN
+                            // https://sensors.geonovum.nl:8666/STH/v1/contextEntities/type/thing/id/d/attributes/temperature?lastN
                             fn: function (value, metaData, record, rowIndex, colIndex, store) {
                                 var args = '\'' + sthURL + '\', \'' + entityType + '\', \'' + record.data['id'] + '\', \'pm10\'';
                                 return value + ' &nbsp;&nbsp;<a href="#" onClick="sthShowTimeseries(' + args + ')">[Show timeseries]</a>';
@@ -460,7 +460,7 @@ Heron.options.map.toolbar = [
                         featureType: 'Fiware Entities',
                         attrName: 'pm2_5',
                         renderer: {
-                            // http://sensors.geonovum.nl:8666/STH/v1/contextEntities/type/thing/id/d/attributes/temperature?lastN
+                            // https://sensors.geonovum.nl:8666/STH/v1/contextEntities/type/thing/id/d/attributes/temperature?lastN
                             fn: function (value, metaData, record, rowIndex, colIndex, store) {
                                 var args = '\'' + sthURL + '\', \'' + entityType + '\', \'' + record.data['id'] + '\', \'pm2_5\'';
                                 return value + ' &nbsp;&nbsp;<a href="#" onClick="sthShowTimeseries(' + args + ')">[Show timeseries]</a>';
@@ -516,7 +516,7 @@ Heron.options.map.toolbar = [
             zoom: 11,
             emptyText: 'Zoek adres met PDOK GeoCoder',
             tooltip: 'Zoek adres met PDOK GeoCoder',
-            url: 'http://geodata.nationaalgeoregister.nl/geocoder/Geocoder?max=10'
+            url: 'https://geodata.nationaalgeoregister.nl/geocoder/Geocoder?max=10'
         }
     },
     {type: "printdialog", options: {url: 'https://ws.nlextract.nl/print/pdf28992.kadviewer'}},
@@ -548,7 +548,7 @@ Heron.options.map.toolbar = [
                         name: 'Geographic Markup Language - v2 (GML2)',
                         fileExt: '.gml',
                         mimeType: 'text/xml',
-                        formatter: new OpenLayers.Format.GML.v2({featureType: 'oledit', featureNS: 'http://geops.de'})
+                        formatter: new OpenLayers.Format.GML.v2({featureType: 'oledit', featureNS: 'https://geops.de'})
                     },
                     {name: 'GeoJSON', fileExt: '.json', mimeType: 'text/plain', formatter: 'OpenLayers.Format.GeoJSON'},
                     {
