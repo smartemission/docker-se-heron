@@ -21,7 +21,7 @@ echo "${CONTAINER_TIMEZONE}" >  /etc/timezone && \
 echo "Container timezone set to: $CONTAINER_TIMEZONE date=`date`"
 
 
-echo "Running Sosemu WSGI on ${CONTAINER_HOST}:${CONTAINER_PORT} with ${WSGI_WORKERS} workers"
+echo "Running Heron WSGI on ${CONTAINER_HOST}:${CONTAINER_PORT} with ${WSGI_WORKERS} workers"
 
 cd /app
 

@@ -43,9 +43,9 @@ Heron.options.serverResolutions = {
  - 6144000
  - 12288000
  * PDOK (follows tiling standard NL):
- *     baseURL: 'http://geodata.nationaalgeoregister.nl',
- *     TMS: 'http://geodata.nationaalgeoregister.nl/tms/',
- *     WMTS:  'http://geodata.nationaalgeoregister.nl/tiles/service/wmts',
+ *     baseURL: 'https://geodata.nationaalgeoregister.nl',
+ *     TMS: 'https://geodata.nationaalgeoregister.nl/tms/',
+ *     WMTS:  'https://geodata.nationaalgeoregister.nl/tiles/service/wmts',
  *     tileOriginLL: new OpenLayers.LonLat(-285401.920, 22598.080),
  *     tileOriginUL: new OpenLayers.LonLat(-285401.920, 903401.920),
  *     tileFullExtent:    new OpenLayers.Bounds(-285401.920, 22598.080, 595401.920, 903401.920),
@@ -112,21 +112,21 @@ Heron.options.map.settings = {
 // Scratch object, just to keep list of URLs for reuse
 Ext.namespace("Heron.scratch");
 Heron.scratch.urls = {
-    SOSPILOT_OWS: 'http://sensors.geonovum.nl/gs/ows?',
-    SMARTEM_WFS_TEST: 'http://test.smartemission.nl/geoserver/wfs?',
+    SOSPILOT_OWS: 'https://sensors.geonovum.nl/gs/ows?',
+    SMARTEM_WFS_TEST: 'https://test.smartemission.nl/geoserver/wfs?',
     SMARTEM_OWS: '/geoserver/ows?',
     SMARTEM_WFS: '/geoserver/wfs?',
-    PDOK: 'http://geodata.nationaalgeoregister.nl',
-    KADEMO_WFS: 'http://kademo.nl/gs2/wfs?',
-    KADEMO_OWS: 'http://kademo.nl/gs2/ows?',
-    KADEMO_GWC_TMS: 'http://kademo.nl/gwc/service/tms/',
-    MAP5_TMS: 'http://s.map5.nl/map/gast/tms/',
-    MAP5_WMS: 'http://s.map5.nl/map/gast/service?',
-    OPENBASISKAART_TMS: 'http://openbasiskaart.nl/mapcache/tms/',
-    RO_WMS: 'http://afnemers.ruimtelijkeplannen.nl/afnemers/services?',
-    RIVM_OWS: 'http://geodata.rivm.nl/geoserver/ows?',
+    PDOK: 'https://geodata.nationaalgeoregister.nl',
+    KADEMO_WFS: 'https://kademo.nl/gs2/wfs?',
+    KADEMO_OWS: 'https://kademo.nl/gs2/ows?',
+    KADEMO_GWC_TMS: 'https://kademo.nl/gwc/service/tms/',
+    MAP5_TMS: 'https://s.map5.nl/map/gast/tms/',
+    MAP5_WMS: 'https://s.map5.nl/map/gast/service?',
+    OPENBASISKAART_TMS: 'https://openbasiskaart.nl/mapcache/tms/',
+    RO_WMS: 'https://afnemers.ruimtelijkeplannen.nl/afnemers/services?',
+    RIVM_OWS: 'https://geodata.rivm.nl/geoserver/ows?',
     // KNMI_ACT_10MIN: 'https://data.knmi.nl/wms/cgi-bin/wms.cgi?%26source%3D%2FActuele10mindataKNMIstations%2F1%2Fnoversion%2F2014%2F11%2F04%2FKMDS__OPER_P___10M_OBS_L2%2Enc%26'
-    KNMI_INSPIRE_WMS: 'http://geoservices.knmi.nl/cgi-bin/inspireviewservice.cgi?DATASET=urn:xkdc:ds:nl.knmi::Actuele10mindataKNMIstations/1/'
+    KNMI_INSPIRE_WMS: 'https://geoservices.knmi.nl/cgi-bin/inspireviewservice.cgi?DATASET=urn:xkdc:ds:nl.knmi::Actuele10mindataKNMIstations/1/'
 };
 
 Heron.PDOK.urls = {
@@ -232,7 +232,7 @@ Heron.options.map.layers = [
             serverResolutions: Heron.options.serverResolutions.zoom_0_13,
             alpha: true,
             opacity: 1.0,
-            attribution: "(C) <a href='http://openbasiskaart.nl'>OpenBasisKaart</a><br/>Data <a href='http://www.openstreetmap.org/copyright'>ODbL</a> <a href='http://openstreetmap.org/'>OpenStreetMap</a> ",
+            attribution: "(C) <a href='https://openbasiskaart.nl'>OpenBasisKaart</a><br/>Data <a href='https://www.openstreetmap.org/copyright'>ODbL</a> <a href='https://openstreetmap.org/'>OpenStreetMap</a> ",
             transitionEffect: 'resize'
         }),
 
@@ -249,7 +249,7 @@ Heron.options.map.layers = [
             serverResolutions: Heron.options.serverResolutions.zoom_0_16,
             alpha: true,
             opacity: 1.0,
-            attribution: "CC by CA <a href='http://map5.nl'>OpenTopo via map5.nl</a> <br/>Data <a href='http://www.openstreetmap.org/copyright'>ODbL</a> <a href='http://openstreetmap.org/'>OpenStreetMap</a> ",
+            attribution: "CC by CA <a href='https://map5.nl'>OpenTopo via map5.nl</a> <br/>Data <a href='https://www.openstreetmap.org/copyright'>ODbL</a> <a href='https://openstreetmap.org/'>OpenStreetMap</a> ",
             transitionEffect: 'resize'
             //metadata: {
             //    legend: {
@@ -265,7 +265,7 @@ Heron.options.map.layers = [
      */
     new OpenLayers.Layer.TMS(
         "Luchtfoto (PDOK)",
-        'http://geodata1.nationaalgeoregister.nl/luchtfoto/tms/',
+        'https://geodata1.nationaalgeoregister.nl/luchtfoto/tms/',
         {
             layername: 'luchtfoto_EPSG28992',
             type: 'jpeg',
@@ -288,7 +288,7 @@ Heron.options.map.layers = [
             serverResolutions: Heron.options.serverResolutions.zoom_0_16,
             alpha: true,
             opacity: 1.0,
-            attribution: "CC by CA <a href='http://map5.nl'>OpenTopo via map5.nl</a> <br/>Data <a href='http://www.openstreetmap.org/copyright'>ODbL</a> <a href='http://openstreetmap.org/'>OpenStreetMap</a> ",
+            attribution: "CC by CA <a href='https://map5.nl'>OpenTopo via map5.nl</a> <br/>Data <a href='https://www.openstreetmap.org/copyright'>ODbL</a> <a href='https://openstreetmap.org/'>OpenStreetMap</a> ",
             transitionEffect: 'resize'
         }),
 
@@ -305,7 +305,7 @@ Heron.options.map.layers = [
             serverResolutions: Heron.options.serverResolutions.zoom_0_13,
             alpha: true,
             opacity: 1.0,
-            attribution: "Bron: <a href='https://www.pdok.nl/nl/service/wmts-brt-achtergrondkaart'>BRT Achtergrondkaart</a> en <a href='http://openstreetmap.org/'>OpenStreetMap</a> <a href='http://www.openstreetmap.org/copyright'>ODbL</a>",
+            attribution: "Bron: <a href='https://www.pdok.nl/nl/service/wmts-brt-achtergrondkaart'>BRT Achtergrondkaart</a> en <a href='https://openstreetmap.org/'>OpenStreetMap</a> <a href='https://www.openstreetmap.org/copyright'>ODbL</a>",
             transitionEffect: 'resize'
         }),
 
@@ -322,7 +322,7 @@ Heron.options.map.layers = [
             serverResolutions: Heron.options.serverResolutions.zoom_0_16,
             alpha: true,
             opacity: 1.0,
-            attribution: "CC by CA <a href='http://map5.nl'>OpenTopo via map5.nl</a> <br/>Data <a href='http://www.openstreetmap.org/copyright'>ODbL</a> <a href='http://openstreetmap.org/'>OpenStreetMap</a> ",
+            attribution: "CC by CA <a href='https://map5.nl'>OpenTopo via map5.nl</a> <br/>Data <a href='https://www.openstreetmap.org/copyright'>ODbL</a> <a href='https://openstreetmap.org/'>OpenStreetMap</a> ",
             transitionEffect: 'resize'
             //metadata: {
             //    legend: {
@@ -346,7 +346,7 @@ Heron.options.map.layers = [
             serverResolutions: Heron.options.serverResolutions.zoom_0_16,
             alpha: true,
             opacity: 1.0,
-            attribution: "CC by CA <a href='http://map5.nl'>OpenTopo via map5.nl</a> <br/>Data <a href='http://www.openstreetmap.org/copyright'>ODbL</a> <a href='http://openstreetmap.org/'>OpenStreetMap</a> ",
+            attribution: "CC by CA <a href='https://map5.nl'>OpenTopo via map5.nl</a> <br/>Data <a href='https://www.openstreetmap.org/copyright'>ODbL</a> <a href='https://openstreetmap.org/'>OpenStreetMap</a> ",
             transitionEffect: 'resize'
         }),
 
@@ -363,7 +363,7 @@ Heron.options.map.layers = [
             serverResolutions: Heron.options.serverResolutions.zoom_0_16,
             alpha: true,
             opacity: 1.0,
-            attribution: "<a href='http://kadaster.nl'>Kadaster</a>, rendered by <a href='http://map5.nl'>Map5.nl</a> ",
+            attribution: "<a href='https://kadaster.nl'>Kadaster</a>, rendered by <a href='https://map5.nl'>Map5.nl</a> ",
             transitionEffect: 'resize',
             metadata: {
                 legend: {
@@ -407,7 +407,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -429,7 +429,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -452,7 +452,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -475,7 +475,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -497,7 +497,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -519,7 +519,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -541,7 +541,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -563,7 +563,7 @@ Heron.options.map.layers = [
     //                 protocol: 'fromWMSLayer',
     //                 outputFormat: 'GML2',
     //                 featurePrefix: 'sensors',
-    //                 featureNS: 'http://smartem.geonovum.nl',
+    //                 featureNS: 'https://smartem.geonovum.nl',
     //                 downloadFormats: Heron.options.wfs.downloadFormats
     //             }
     //         }
@@ -585,7 +585,7 @@ Heron.options.map.layers = [
     //                 protocol: 'fromWMSLayer',
     //                 outputFormat: 'GML2',
     //                 featurePrefix: 'sensors',
-    //                 featureNS: 'http://smartem.geonovum.nl',
+    //                 featureNS: 'https://smartem.geonovum.nl',
     //                 downloadFormats: Heron.options.wfs.downloadFormats
     //             }
     //         }
@@ -607,7 +607,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -629,7 +629,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -651,7 +651,7 @@ Heron.options.map.layers = [
     //                 protocol: 'fromWMSLayer',
     //                 outputFormat: 'GML2',
     //                 featurePrefix: 'sensors',
-    //                 featureNS: 'http://smartem.geonovum.nl',
+    //                 featureNS: 'https://smartem.geonovum.nl',
     //                 downloadFormats: Heron.options.wfs.downloadFormats
     //             }
     //         }
@@ -673,7 +673,7 @@ Heron.options.map.layers = [
     //                 protocol: 'fromWMSLayer',
     //                 outputFormat: 'GML2',
     //                 featurePrefix: 'sensors',
-    //                 featureNS: 'http://smartem.geonovum.nl',
+    //                 featureNS: 'https://smartem.geonovum.nl',
     //                 downloadFormats: Heron.options.wfs.downloadFormats
     //             }
     //         }
@@ -695,7 +695,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -717,7 +717,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -739,7 +739,7 @@ Heron.options.map.layers = [
     //                 protocol: 'fromWMSLayer',
     //                 outputFormat: 'GML2',
     //                 featurePrefix: 'sensors',
-    //                 featureNS: 'http://smartem.geonovum.nl',
+    //                 featureNS: 'https://smartem.geonovum.nl',
     //                 downloadFormats: Heron.options.wfs.downloadFormats
     //             }
     //         }
@@ -761,7 +761,7 @@ Heron.options.map.layers = [
     //                 protocol: 'fromWMSLayer',
     //                 outputFormat: 'GML2',
     //                 featurePrefix: 'sensors',
-    //                 featureNS: 'http://smartem.geonovum.nl',
+    //                 featureNS: 'https://smartem.geonovum.nl',
     //                 downloadFormats: Heron.options.wfs.downloadFormats
     //             }
     //         }
@@ -787,7 +787,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -809,7 +809,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -831,7 +831,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -853,7 +853,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -878,7 +878,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -901,7 +901,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -923,7 +923,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -945,7 +945,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -967,7 +967,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -989,7 +989,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1011,7 +1011,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1033,7 +1033,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://smartem.geonovum.nl',
+                    featureNS: 'https://smartem.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1055,7 +1055,7 @@ Heron.options.map.layers = [
     //                protocol: 'fromWMSLayer',
     //                outputFormat: 'GML2',
     //                featurePrefix: 'sensors',
-    //                featureNS: 'http://smartem.geonovum.nl',
+    //                featureNS: 'https://smartem.geonovum.nl',
     //                downloadFormats: Heron.options.wfs.downloadFormats
     //            }
     //        }
@@ -1134,7 +1134,7 @@ Heron.options.map.layers = [
      */
     new OpenLayers.Layer.WMS(
         "KNMI - Rain Radar (Color)",
-        "http://geoservices.knmi.nl/cgi-bin/RADNL_OPER_R___25PCPRR_L3.cgi?",
+        "https://geoservices.knmi.nl/cgi-bin/RADNL_OPER_R___25PCPRR_L3.cgi?",
         {layers: "RADNL_OPER_R___25PCPRR_L3_COLOR", format: "image/png", transparent: true},
         {
             isBaseLayer: false, singleTile: true, visibility: false, alpha: true,
@@ -1142,8 +1142,8 @@ Heron.options.map.layers = [
         }
     ),
 
-    // More KNMI at: http://geoservices.knmi.nl/WMSexamplesinADAGUC.html
-    // http://geoservices.knmi.nl/cgi-bin/INTER_OPER_R___OBSERV__L3.cgi?
+    // More KNMI at: https://geoservices.knmi.nl/WMSexamplesinADAGUC.html
+    // https://geoservices.knmi.nl/cgi-bin/INTER_OPER_R___OBSERV__L3.cgi?
 
 
     /*
@@ -1269,7 +1269,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1291,7 +1291,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1319,7 +1319,7 @@ Heron.options.map.layers = [
             srsName: 'EPSG:28992',
             url: Heron.scratch.urls.SOSPILOT_OWS,
             featureType: "active_stations",
-            featureNS: "http://sensors.geonovum.nl",
+            featureNS: "https://sensors.geonovum.nl",
             geometryName: 'point'
         })
     }),
@@ -1339,7 +1339,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1361,7 +1361,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1383,7 +1383,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1405,7 +1405,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1427,7 +1427,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1449,7 +1449,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1471,7 +1471,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1493,7 +1493,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1515,7 +1515,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1537,7 +1537,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1559,7 +1559,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1581,7 +1581,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1603,7 +1603,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1625,7 +1625,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1647,7 +1647,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1673,7 +1673,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1695,7 +1695,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
@@ -1717,7 +1717,7 @@ Heron.options.map.layers = [
                     protocol: 'fromWMSLayer',
                     outputFormat: 'GML2',
                     featurePrefix: 'sensors',
-                    featureNS: 'http://sensors.geonovum.nl',
+                    featureNS: 'https://sensors.geonovum.nl',
                     downloadFormats: Heron.options.wfs.downloadFormats
                 }
             }
