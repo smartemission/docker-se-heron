@@ -112,8 +112,8 @@ Heron.options.map.settings = {
 // Scratch object, just to keep list of URLs for reuse
 Ext.namespace("Heron.scratch");
 Heron.scratch.urls = {
-    SOSPILOT_OWS: 'https://sensors.geonovum.nl/gs/ows?',
-    SMARTEM_WFS_TEST: 'https://test.smartemission.nl/geoserver/wfs?',
+    SOSPILOT_OWS: 'http://sensors.geonovum.nl/gs/ows?',
+    SMARTEM_WFS_TEST: 'http://test.smartemission.nl/geoserver/wfs?',
     SMARTEM_OWS: '/geoserver/ows?',
     SMARTEM_WFS: '/geoserver/wfs?',
     PDOK: 'https://geodata.nationaalgeoregister.nl',
@@ -124,7 +124,7 @@ Heron.scratch.urls = {
     MAP5_WMS: 'https://s.map5.nl/map/gast/service?',
     OPENBASISKAART_TMS: 'https://openbasiskaart.nl/mapcache/tms/',
     RO_WMS: 'https://afnemers.ruimtelijkeplannen.nl/afnemers/services?',
-    RIVM_OWS: 'https://geodata.rivm.nl/geoserver/ows?',
+    RIVM_OWS: 'http://geodata.rivm.nl/geoserver/ows?',
     // KNMI_ACT_10MIN: 'https://data.knmi.nl/wms/cgi-bin/wms.cgi?%26source%3D%2FActuele10mindataKNMIstations%2F1%2Fnoversion%2F2014%2F11%2F04%2FKMDS__OPER_P___10M_OBS_L2%2Enc%26'
     KNMI_INSPIRE_WMS: 'https://geoservices.knmi.nl/cgi-bin/inspireviewservice.cgi?DATASET=urn:xkdc:ds:nl.knmi::Actuele10mindataKNMIstations/1/'
 };
@@ -219,6 +219,23 @@ Heron.options.map.layers = [
      * ==================================
      */
 
+    new OpenLayers.Layer.TMS("BRT Achtergrondkaart Grijs",
+        Heron.PDOK.urls.PDOKTMS,
+        {
+            layername: 'brtachtergrondkaartgrijs',
+            type: "png",
+            isBaseLayer: true,
+            transparent: true,
+            bgcolor: "0xffffff",
+            visibility: false,
+            singleTile: false,
+            serverResolutions: Heron.options.serverResolutions.zoom_0_13,
+            alpha: true,
+            opacity: 1.0,
+            attribution: "Bron: <a href='https://www.pdok.nl/nl/service/tms-brt-achtergrondkaart-grijs-0'>PDOK BRT Achtergrondkaart</a>",
+            transitionEffect: 'resize'
+        }),
+
     new OpenLayers.Layer.TMS("OpenBasisKaart OSM",
         Heron.scratch.urls.OPENBASISKAART_TMS,
         {
@@ -227,7 +244,7 @@ Heron.options.map.layers = [
             isBaseLayer: true,
             transparent: true,
             bgcolor: "0xffffff",
-            visibility: true,
+            visibility: false,
             singleTile: false,
             serverResolutions: Heron.options.serverResolutions.zoom_0_13,
             alpha: true,
@@ -1744,14 +1761,14 @@ Heron.options.layertree.tree = [
     },
     {
         text: 'Base Maps', expanded: false, children: [
+        {nodeType: "gx_layer", layer: "BRT Achtergrondkaart Grijs", text: "BRT Grijs (PDOK)"},
         {nodeType: "gx_layer", layer: "BRT Achtergrondkaart", text: "BRT (PDOK)"},
         {nodeType: "gx_layer", layer: "OpenBasisKaart OSM"},
         {nodeType: "gx_layer", layer: "OpenTopo TMS", text: "OpenTopo (Map5.nl)"},
         {nodeType: "gx_layer", layer: "OpenSimpleTopo TMS", text: "OpenSimpleTopo (Map5.nl)"},
-        {nodeType: "gx_layer", layer: "Map5 OpenLufo TMS", text: "OpenLufo (Map5.nl)"},
+        {nodeType: "gx_layer", layer: "Map5 OpenLufo TMS", text: "Luchtfoto (Map5.nl)"},
         {nodeType: "gx_layer", layer: "Map5 Relief Struct TMS", text: "AHN2 Reliëf (Map5.nl)"},
-        {nodeType: "gx_layer", layer: "Map5 TopRaster TMS", text: "TopRaster (Map5.nl)"},
-        {nodeType: "gx_layer", layer: "Luchtfoto (PDOK)"},
+        {nodeType: "gx_layer", layer: "Map5 TopRaster TMS", text: "Topografisch (Map5.nl)"},
         {nodeType: "gx_layer", layer: "Blanco"}
     ]
     },
