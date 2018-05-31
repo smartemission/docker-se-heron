@@ -134,7 +134,7 @@ Heron.PDOK.urls = {
     BAG: Heron.scratch.urls.PDOK + '/bag/ows?',
     BESCHERMDENATUURMONUMENTEN: Heron.scratch.urls.PDOK + '/beschermdenatuurmonumenten/wms?',
     BESTUURLIJKEGRENZEN: Heron.scratch.urls.PDOK + '/bestuurlijkegrenzen/ows?',
-    PDOKTMS: Heron.scratch.urls.PDOK + '/tiles/service/tms/',
+    PDOKTMS: Heron.scratch.urls.PDOK + '/tiles/service/tms/EPSG:28992/',
     NATURA2000: Heron.scratch.urls.PDOK + '/natura2000/wms?',
     NATURA2000WMTS: Heron.scratch.urls.PDOK + '/tiles/service/wmts/natura2000?',
     NWBWEGEN: Heron.scratch.urls.PDOK + '/nwbwegen/wms?',
