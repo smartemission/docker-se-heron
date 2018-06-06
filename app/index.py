@@ -4,7 +4,7 @@ import logging
 from functools import wraps, update_wrapper
 from urlparse import urlparse
 from datetime import datetime
-from flask import Flask, Response, render_template, request, make_response, stream_with_context
+from flask import Flask, Response, render_template, request, make_response
 from werkzeug.utils import secure_filename
 from reverseproxied import ReverseProxied
 from config import config
@@ -27,6 +27,7 @@ log.setLevel(config['loglevel'])
 
 CHUNK_SIZE = 1024
 
+
 # Wrapper to disable any kind of caching for all pages
 # See http://arusahni.net/blog/2014/03/flask-nocache.html
 def nocache(view):
@@ -45,10 +46,12 @@ def nocache(view):
 def access_denied():
     return Response("{'access':'denied'}", status=403, mimetype='application/json')
 
+
 def url2toplevel_domain(url):
     referer_host_port = urlparse(url).netloc
     # Extract top-level domain
     return '.'.join(referer_host_port.split(':')[0].split('.')[-2:])
+
 
 # Home page
 @app.route('/')
@@ -128,7 +131,7 @@ def heron():
             # file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
             file['value'] = f.read()
             params['file'] = file
-            
+
     else:
         params = request.args
 
@@ -140,5 +143,3 @@ def heron():
 if __name__ == '__main__':
     # Run as main via python index.py
     app.run(debug=True, host='0.0.0.0')
-
-

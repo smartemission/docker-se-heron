@@ -2,9 +2,9 @@
 
 Ext.namespace("Heron.options");
 OpenLayers.Util.onImageLoadErrorColor = "transparent";
-OpenLayers.ProxyHost = "cgi-bin/proxy.cgi?url=";
+OpenLayers.ProxyHost = "heron/cgi-bin/proxy.cgi?url=";
 Ext.namespace("Heron.globals");
-Heron.globals.serviceUrl = 'cgi-bin/heron.cgi';
+Heron.globals.serviceUrl = 'heron/cgi-bin/heron.cgi';
 OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
 
 Ext.BLANK_IMAGE_URL = 'https://cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/resources/images/default/s.gif';
@@ -116,7 +116,7 @@ Heron.options.searchPanelConfig = {
                     url: Heron.scratch.urls.SMARTEM_WFS,
                     srsName: "EPSG:4326",
                     featureType: "timeseries",
-                    featureNS: "https://smartem.geonovum.nl",
+                    featureNS: "http://smartem.geonovum.nl",
                     outputFormat: 'GML2',
                     maxFeatures: 20000
                 }),
@@ -179,7 +179,7 @@ Heron.options.searchPanelConfig = {
                         store: new Ext.data.JsonStore({
                             autoLoad: true,
                             proxy: new Ext.data.HttpProxy({
-                                url: 'static/data/components.json',
+                                url: 'heron/static/data/components.json',
                                 method: 'GET'
                             }),
                             idProperty: 'device_id',
@@ -689,7 +689,7 @@ Heron.options.map.toolbar = [
 //        fileName: 'heron_map',
 //        fileExt: '.cml'
 //    }},
-    {type: "help", options: {contentUrl: 'static/content/help.html', popupWindow: {width: 640, height: 540}}}
+    {type: "help", options: {contentUrl: 'heron/static/content/help.html', popupWindow: {width: 640, height: 540}}}
 ];
 
 /** Values for BookmarksPanel (bookmarks to jump to specific layers/zoom/center on map. */
