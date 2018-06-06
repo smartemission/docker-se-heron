@@ -13,15 +13,17 @@ ENV LC_ALL="en_US.UTF-8" \
 	CONTAINER_HOST=0.0.0.0 \
 	CONTAINER_PORT=80 \
 	WSGI_WORKERS=4 \
-	WSGI_WORKER_TIMEOUT=6000 \
-	WSGI_WORKER_CLASS='eventlet'
+	WSGI_WORKER_TIMEOUT=12000 \
+	WSGI_WORKER_CLASS='sync'
 
 RUN apt-get update \
     && apt-get --no-install-recommends install -y netbase gdal-bin \
 	&& apt autoremove -y  \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install eventlet gunicorn flask requests
+# Don't use eventlet here, somehow failed on K8s nginx setup
+# See https://github.com/smartemission/smartemission/issues/120#issuecomment-395089636
+RUN pip install gunicorn==19.8.1 flask==1.0.2 requests==2.18.4
 
 # Add entry-script and app to root dir
 COPY entry.sh /
