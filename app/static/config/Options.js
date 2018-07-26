@@ -507,16 +507,15 @@ Heron.options.map.toolbar = [
         type: "namesearch",
         // Optional options, see OpenLSSearchCombo.js
         options: {
-            xtype: 'hr_openlssearchcombo',
-            id: "pdoksearchcombo",
+            xtype: 'hr_locatieserversearchcombo',
+            id: "pdoklocserverearchcombo",
             width: 240,
             listWidth: 400,
             minChars: 4,
             queryDelay: 200,
             zoom: 11,
-            emptyText: 'Zoek adres met PDOK GeoCoder',
-            tooltip: 'Zoek adres met PDOK GeoCoder',
-            url: 'https://geodata.nationaalgeoregister.nl/geocoder/Geocoder?max=10'
+            emptyText: 'Zoek adres met PDOK Locatie Server',
+            tooltip: 'Zoek adres met PDOK Locatie Server'
         }
     },
     {type: "printdialog", options: {url: 'https://ws.nlextract.nl/print/pdf28992.kadviewer'}},
